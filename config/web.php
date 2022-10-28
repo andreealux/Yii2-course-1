@@ -5,8 +5,12 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Hello World',
+//    'language' => 'de',
+//    'defaultRoute' => 'my-article/hello-world',
+    'layout' => 'main',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'test'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -15,6 +19,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'K26zDedkZAvyMfnnb8qp8REWXNGIUurx',
+            'parsers' => [
+                'application/json' => \yii\web\JsonParser::class
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -42,16 +49,45 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'assetManager' => [
+            'class' => 'app\components\AssetManager',
+//            'appendTimestamp' => true
+        ],
+//        'test' => [
+//            'class' => 'app\components\TestComponent',
+//        ],
+//        'test' =>  'app\components\TestComponent',
+        'test' => function(){
+            return new \app\components\TestComponent();
+        }
     ],
     'params' => $params,
+//    'on beforeRequest' => function(){
+//        echo '<pre>';
+//        var_dump("From before request");
+//        echo '</pre>';
+//    }
+//    'on beforeAction' => function(){
+//        echo '<pre>';
+//        var_dump("Application before action");
+//        echo '</pre>';
+//
+//        Yii::$app->controller->on(\yii\web\Controller::EVENT_BEFORE_ACTION, function() {
+//            echo '<pre>';
+//            var_dump("Controller before action from ->on method");
+//            echo '</pre>';
+//        });
+//    }
+//    'on beforeAction' => function(){
+//    echo Yii::$app->view->render('@app/views/page/about');
+//    }
 ];
 
 if (YII_ENV_DEV) {
