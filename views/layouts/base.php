@@ -18,10 +18,14 @@
                     <li class="list-group-item">Sidebar Item 2</li>
                     <li class="list-group-item">Sidebar Item 3</li>
                 </ul>
+                <hr>
+                <?php if(isset($this->blocks['sidebar'])): ?>
+                    <?php echo $this->blocks['sidebar'] ?>
+                <?php endif; ?>
             </div>
         </div>
 
-    </div>
+    </div>N
     <footer>
         Footer goes here
     </footer>

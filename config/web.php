@@ -57,7 +57,9 @@ $config = [
             ],
         ],
         'assetManager' => [
-            'class' => 'app\components\AssetManager',
+            'linkAssets' => false,
+//            'bundles' => false //disable css and js
+//            'class' => 'app\components\AssetManager',
 //            'appendTimestamp' => true
         ],
 //        'test' => [

@@ -21,4 +21,4 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
         Content from about page
     </div>
-<?php $this->endBlock?>
+<?php $this->endBlock()?>

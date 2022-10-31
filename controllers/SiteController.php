@@ -15,7 +15,7 @@ use yii\web\ServerErrorHttpException;
 
 class SiteController extends Controller
 {
-    public $layout = 'base';
+    public $layout = 'main';
     public $enableCsrfValidation = false;
 
     /**
